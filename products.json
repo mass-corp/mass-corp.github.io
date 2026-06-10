@@ -1,0 +1,56 @@
+[
+  {
+    "id": "p-01",
+    "name": "Mass-Amoxicillin 500",
+    "category": "antibiotics",
+    "imagePath": "assets/products/amoxicillin-500.png",
+    "composition": "Amoxicillin Trihydrate BP equivalent to Amoxicillin 500mg",
+    "packaging": "Alu-Alu Blister Pack / 10 &times; 10 Box matrix configuration",
+    "indications": "Indicated for systemic infections involving respiratory tract, genitourinary tracts, dermatological layer structures, and urgent ENT bacterial pathogens."
+  },
+  {
+    "id": "p-02",
+    "name": "Mass-Azithromycin 500",
+    "category": "antibiotics",
+    "imagePath": "assets/products/azithromycin-500.png",
+    "composition": "Azithromycin Dihydrate USP equivalent to Azithromycin 500mg anhydrous base",
+    "packaging": "Waterproof solid blister card strips / 3 &times; 6 Box array",
+    "indications": "Advanced macrolide variant addressing community-acquired pneumonia flare-ups, secure soft-tissue microbial tracks, and complex urethritis indications."
+  },
+  {
+    "id": "p-03",
+    "name": "Cof-Clear Expectorant",
+    "category": "syrups",
+    "imagePath": "assets/products/cof-clear.png",
+    "composition": "Ambroxol Hydrochloride BP 15mg per individual 5ml volumetric dose",
+    "packaging": "100ml / Amber high-density pharmaceutical PET bottle containing child-proof closure sealing",
+    "indications": "Secretolytic treatment course alleviating acute airway mucus blockages within chronic inflammatory bronchopneumonia pathways."
+  },
+  {
+    "id": "p-04",
+    "name": "Paracet-Mass Oral Suspension",
+    "category": "syrups",
+    "imagePath": "assets/products/paracet-suspension.png",
+    "composition": "Paracetamol BP 120mg / 5ml stabilized formulation",
+    "packaging": "60ml Glass container with calibrated precision measuring tool set included",
+    "indications": "Rapid pediatric antipyretic control targeting fast viral pyrexia mitigation and mild-to-moderate pediatric pain tracking parameters."
+  },
+  {
+    "id": "p-05",
+    "name": "Mass-Check Malaria Pf/Pv Combo",
+    "category": "devices",
+    "imagePath": "assets/products/malaria-kit.png",
+    "composition": "Colloidal Gold Immunochromatographic Lateral Flow Assay Membrane Assembly",
+    "packaging": "Individual foil-wrapped testing cassettes / Pack distribution sizing contains 25 kits with assay buffers",
+    "indications": "In-vitro operational tracking detection mapping Plasmodium falciparum HRP-II indicators alongside Plasmodium vivax specific lactate dehydrogenase."
+  },
+  {
+    "id": "p-06",
+    "name": "Gluco-Mass Test Strips Ver-IV",
+    "category": "devices",
+    "imagePath": "assets/products/gluco-strips.png",
+    "composition": "FAD-Dependent Glucose Dehydrogenase biosensor enzyme enzyme binding matrices",
+    "packaging": "Vial storage setup housing 50 testing units with integrated moisture desiccants",
+    "indications": "Quantitative diagnostics analyzing capillary whole blood volumes helping diabetic parameters management systems."
+  }
+]

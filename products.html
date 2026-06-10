@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Catalog | Mass Corporation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           DESIGN TOKENS & SYSTEM VARIABLES
+           ========================================================================== */
+        :root {
+            --primary-navy: #0A2540;
+            --accent-teal: #008080;
+            --accent-teal-hover: #005A5A;
+            --bg-light: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --text-light: #FFFFFF;
+            --border-color: #E2E8F0;
+            --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            --font-main: 'Inter', sans-serif;
+            --font-head: 'Lexend', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .font-lexend {
+            font-family: var(--font-head);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ==========================================================================
+           UPGRADED MODERN HEADER / NAVIGATION
+           ========================================================================== */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.03);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--primary-navy));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
+        }
+
+        .logo-text {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            letter-spacing: -0.03em;
+        }
+
+        .logo-text span {
+            color: var(--accent-teal);
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-teal);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-teal);
+        }
+
+        .b2b-contact-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--bg-light);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .b2b-contact-badge span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .b2b-contact-badge a {
+            color: var(--primary-navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: var(--font-head);
+        }
+
+        /* ==========================================================================
+           UPGRADED PREMIUM CATALOG HERO
+           ========================================================================== */
+        .catalog-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #113355 100%);
+            position: relative;
+            color: var(--text-light);
+            padding: 80px 0 100px 0; /* Extra bottom padding for overlap effect */
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Subtle background glow effect */
+        .catalog-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 128, 128, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ccfbf1;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .catalog-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .catalog-hero p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           FILTERING SYSTEM HEADER INTERFACE (Overlapping the Hero)
+           ========================================================================== */
+        .search-filter-controls {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.08);
+            margin-top: -60px; /* Pulls the box up into the hero banner */
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-bar-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
+            background-color: var(--bg-light);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(0, 128, 128, 0.1);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .filter-tabs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .filter-tab {
+            padding: 10px 24px;
+            background-color: var(--bg-light);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-tab:hover {
+            color: var(--primary-navy);
+            border-color: #cbd5e1;
+        }
+
+        .filter-tab.active {
+            background-color: var(--primary-navy);
+            color: var(--text-light);
+            border-color: var(--primary-navy);
+            box-shadow: 0 4px 12px rgba(10, 37, 64, 0.15);
+        }
+
+        /* ==========================================================================
+           PRODUCT DYNAMIC CATALOG GRID (UNTOUCHED)
+           ========================================================================== */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+            min-height: 300px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.06);
+            border-color: var(--accent-teal);
+        }
+
+        .product-img-box {
+            height: 240px;
+            background-color: #F0Fdfa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+            position: relative;
+        }
+
+        .product-img-box img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        .image-specs-overlay {
+            font-size: 0.75rem;
+            color: var(--accent-teal);
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .category-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(10, 37, 64, 0.9);
+            color: #FFF;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .product-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--primary-navy);
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: var(--font-head);
+        }
+
+        .product-composition {
+            font-size: 0.9rem;
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-footer-cta {
+            margin-top: auto;
+            width: 100%;
+            padding: 14px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            color: var(--primary-navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .product-card:hover .card-footer-cta {
+            background-color: var(--accent-teal);
+            border-color: var(--accent-teal);
+            color: #FFFFFF;
+        }
+
+        .no-results-msg {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            background: #FFF;
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+        }
+
+        /* ==========================================================================
+           DEEP DIVE MODAL WINDOWS (PHARMACEUTICAL SPECS)
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 37, 64, 0.7);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background-color: #FFFFFF;
+            width: 100%;
+            max-width: 650px;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .modal-overlay.open .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background-color: var(--primary-navy);
+            color: #FFF;
+            padding: 25px 30px;
+            position: relative;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 22px;
+            right: 25px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            line-height: 1;
+        }
+
+        .modal-close-btn:hover {
+            color: #FFF;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-spec-row {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .modal-spec-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-teal);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .spec-value {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            padding: 40px 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--accent-teal);
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE CONFIGURATIONS
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; gap: 15px; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .b2b-contact-badge { display: none; } /* Hide on mobile to save space */
+            .catalog-hero { padding: 60px 0 80px 0; }
+            .catalog-hero h1 { font-size: 2.2rem; }
+            .search-filter-controls { margin-top: -40px; padding: 20px; }
+            .catalog-grid { grid-template-columns: 1fr; }
+            .footer-flex { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">Mass <span>Corporation</span></div>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link active">Products</a>
+            </nav>
+            <div class="b2b-contact-badge">
+                <span>Direct B2B Hotline</span>
+                <a href="tel:+880212345678">+880 2 1234 5678</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="catalog-hero">
+        <div class="container">
+            <span class="hero-tag">Active Catalog</span>
+            <h1>Verified Product Repository</h1>
+            <p>Institutional Sourcing Framework & Active Formulation Indexes</p>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <div class="search-filter-controls">
+            <div class="search-bar-wrapper">
+                <svg class="search-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="catalogSearch" class="search-input" placeholder="Query by formula name, active molecular ingredient, or therapeutic indication...">
+            </div>
+            
+            <div class="filter-tabs-container" id="filterTabsRow">
+                <button class="filter-tab active" data-category="all">All Specifications</button>
+                <button class="filter-tab" data-category="antibiotics">Antibiotics</button>
+                <button class="filter-tab" data-category="syrups">Syrups & Oral Liquids</button>
+                <button class="filter-tab" data-category="devices">Medical Diagnostics</button>
+            </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+
+    </main>
+
+    <div class="modal-overlay" id="productModal" role="dialog" aria-hidden="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modalProductName" class="font-lexend" style="font-size: 1.5rem; font-weight: 700;">Product Technical Spec Sheet</h2>
+                <button class="modal-close-btn" id="closeModalBtn" aria-label="Close configuration overlay">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-spec-row">
+                    <div class="spec-label">Active Molecular Composition</div>
+                    <div class="spec-value" id="modalComposition">-</div>
+                </div>
+                <div class="modal-spec-row">
+                    <div class="spec-label">Standard Delivery & Packaging</div>
+                    <div class="spec-value" id="modalPackaging">-</div>
+                </div>
+                <div class="modal-spec-row">
+                    <div class="spec-label">Verified Clinical Indications</div>
+                    <div class="spec-value" id="modalIndications">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-flex">
+            <div>&copy; 2026 Mass Corporation | Technical Operations Deck.</div>
+            <div style="opacity: 0.6; font-size: 0.8rem;">Secure Client-Side Catalog Index Generation v2.4</div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. DATA DESK PROPERTY HOOK
+        let productsDataset = [];
+
+        // 2. DOCUMENT ELEMENT SELECTION HANDLES
+        const catalogGrid = document.getElementById("catalogGrid");
+        const catalogSearch = document.getElementById("catalogSearch");
+        const filterTabsRow = document.getElementById("filterTabsRow");
+        const filterTabs = document.querySelectorAll(".filter-tab");
+        
+        // Modal UI Elements
+        const productModal = document.getElementById("productModal");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const modalProductName = document.getElementById("modalProductName");
+        const modalComposition = document.getElementById("modalComposition");
+        const modalPackaging = document.getElementById("modalPackaging");
+        const modalIndications = document.getElementById("modalIndications");
+
+        let runtimeActiveCategory = "all";
+        let runtimeActiveSearchQuery = "";
+
+        // NEW: ASYNC FETCH SYSTEM ENGINE FOR JSON CONTEXTS
+        async function loadDatasetAsync() {
+            try {
+                const response = await fetch('products.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP Matrix Fault: Status ${response.status}`);
+                }
+                productsDataset = await response.json();
+                
+                // Read parsing parameters from index.html direct category routing calls
+                checkUrlParameters();
+                
+                renderCatalog();
+            } catch (error) {
+                console.error("Repository initialization process aborted:", error);
+                catalogGrid.innerHTML = `
+                    <div class="no-results-msg" style="border-color: #ef4444; color: #b91c1c;">
+                        <strong>Data Sourcing Framework Fault</strong><br>
+                        Unable to securely load active catalog streams. Please refresh or contact site operations.
+                    </div>`;
+            }
+        }
+
+        // NEW: Handles parameter sync from index link hooks cleanly
+        function checkUrlParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catParam = urlParams.get('cat');
+            if (catParam) {
+                const normalized = catParam.toLowerCase().trim();
+                if (normalized === 'antibiotics') runtimeActiveCategory = 'antibiotics';
+                if (normalized === 'syrups') runtimeActiveCategory = 'syrups';
+                if (normalized === 'medical devices') runtimeActiveCategory = 'devices';
+                
+                filterTabs.forEach(tab => {
+                    if (tab.getAttribute('data-category') === runtimeActiveCategory) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // 3. SECURE DOM GENERATION RENDER ENGINE
+        function renderCatalog() {
+            catalogGrid.innerHTML = "";
+            
+            const filteredProducts = productsDataset.filter(product => {
+                const matchesCategory = (runtimeActiveCategory === "all" || product.category === runtimeActiveCategory);
+                const matchesSearch = product.name.toLowerCase().includes(runtimeActiveSearchQuery) || 
+                                      product.composition.toLowerCase().includes(runtimeActiveSearchQuery) || 
+                                      product.indications.toLowerCase().includes(runtimeActiveSearchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredProducts.length === 0) {
+                catalogGrid.innerHTML = `
+                    <div class="no-results-msg">
+                        <strong>No Compliant Records Identified</strong><br>
+                        No products match your current search criteria. Try selecting another tab or verifying spelling.
+                    </div>`;
+                return;
+            }
+
+            filteredProducts.forEach(product => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+                card.setAttribute("data-id", product.id);
+                
+                // Fallback rendering structure: Show image element if found, fallback gracefully to clean vectors if paths are broken
+                card.innerHTML = `
+                    <div class="product-img-box">
+                        <span class="category-tag">${product.category}</span>
+                        <img src="${product.imagePath}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" alt="${product.name}">
+                        <div class="fallback-vector" style="display:none; text-align:center;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" stroke-dasharray="2 2"/><path d="M12 6v12M6 12h12"/></svg>
+                            <div class="image-specs-overlay">
+                                ${product.imagePath}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-composition">${product.composition.substring(0, 45)}...</div>
+                        <p class="product-excerpt">${product.indications.substring(0, 110)}...</p>
+                        <button class="card-footer-cta">
+                            <span>Inspect Technical Specifications</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </div>
+                `;
+                
+                card.querySelector(".card-footer-cta").addEventListener("click", () => openProductDeepDive(product));
+                catalogGrid.appendChild(card);
+            });
+        }
+
+        // 4. DETAILED MODAL CONTROL HANDLERS
+        function openProductDeepDive(product) {
+            modalProductName.textContent = product.name;
+            modalComposition.textContent = product.composition;
+            modalPackaging.innerHTML = product.packaging;
+            modalIndications.textContent = product.indications;
+            
+            productModal.classList.add("open");
+            productModal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeProductDeepDive() {
+            productModal.classList.remove("open");
+            productModal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "auto";
+        }
+
+        // 5. EVENT LISTENERS ASSIGNMENTS
+        catalogSearch.addEventListener("input", (e) => {
+            runtimeActiveSearchQuery = e.target.value.toLowerCase().trim();
+            renderCatalog();
+        });
+
+        filterTabsRow.addEventListener("click", (e) => {
+            const targetButton = e.target.closest(".filter-tab");
+            if (!targetButton) return;
+            
+            filterTabs.forEach(tab => tab.classList.remove("active"));
+            targetButton.classList.add("active");
+            
+            runtimeActiveCategory = targetButton.getAttribute("data-category");
+            renderCatalog();
+        });
+
+        closeModalBtn.addEventListener("click", closeProductDeepDive);
+        
+        productModal.addEventListener("click", (e) => {
+            if (e.target === productModal) closeProductDeepDive();
+        });
+
+        document.addEventListener("DOMContentLoaded", loadDatasetAsync);
+    </script>
+</body>
+</html>

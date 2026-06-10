@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Corporation | Premium Pharmaceutical Distribution Dhaka</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-teal: #0d9488;
+            --primary-hover: #0f766e;
+            --primary-light: #ccfbf1;
+            --dark-blue: #0A2540;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --max-width: 1280px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Lexend', sans-serif;
+            color: var(--dark-blue);
+        }
+    
+    	body.locked {
+    overflow: hidden;
+		}
+
+
+
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background-color: var(--dark-blue);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .splash-content {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: splashFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .splash-tagline {
+            color: var(--primary-teal);
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .splash-logo {
+            color: var(--bg-white);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+
+        .splash-logo span {
+            color: var(--primary-teal);
+        }
+
+        .splash-signature {
+            color: rgba(255, 255, 255, 0.4);
+            font-family: monospace;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        @keyframes splashFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header Section (Non-Sticky Premium B2B Navigation) --- */
+        .top-header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--dark-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .logo-text span {
+            color: var(--primary-teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-teal);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-teal);
+        }
+
+        .b2b-contact-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background-color: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-item strong {
+            color: var(--dark-blue);
+        }
+
+        .contact-item:hover {
+            color: var(--primary-teal);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: radial-gradient(circle at top right, var(--primary-light) 0%, var(--bg-white) 60%);
+            padding: 7rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary-hover);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+
+        .hero-visual {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trust-icon {
+            background-color: var(--primary-light);
+            color: var(--primary-teal);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-teal);
+            color: white;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 148, 136, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark-blue);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-white);
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+        }
+
+        .hero-graphic {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .graphic-bg {
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 420px;
+            background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(15, 23, 42, 0.05) 100%);
+            border: 2px dashed rgba(13, 148, 136, 0.2);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 12s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .graphic-core {
+            width: 65%;
+            height: 65%;
+            background: linear-gradient(135deg, var(--primary-teal), var(--dark-blue));
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .graphic-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            align-self: flex-start;
+            margin-bottom: auto;
+            text-transform: uppercase;
+        }
+
+        /* --- About Founder Section --- */
+        .founder-section {
+            padding: 8rem 2rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 0.80fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #cbd5e1;
+            aspect-ratio: 4 / 5;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .image-placeholder-spec {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #475569, #1e293b);
+            color: white;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 2rem;
+            font-family: monospace;
+            z-index: 1;
+        }
+
+        .biography-space h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .founder-title {
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .bio-text p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        .signature-block {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        /* --- Product Preview Showcase --- */
+        .preview-section {
+            background-color: var(--bg-white);
+            padding: 8rem 2rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .preview-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-teal);
+            box-shadow: 0 12px 30px rgba(13, 148, 136, 0.05);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            color: var(--primary-teal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .category-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .category-link {
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .category-link:hover {
+            color: var(--primary-hover);
+        }
+
+        /* --- Premium Corporate Footer --- */
+        .corporate-footer {
+            background-color: var(--dark-blue);
+            color: #94a3b8;
+            padding: 80px 20px 40px 20px;
+        }
+
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-brand h3 span {
+            color: var(--primary-teal);
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+
+        .footer-address {
+            font-style: normal;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+        }
+
+        .footer-address strong {
+            color: white;
+            display: inline-block;
+            margin-bottom: 8px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .contact-list a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .contact-list a:hover {
+            color: var(--primary-teal);
+        }
+
+        .inquiry-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .inquiry-box p {
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .btn-footer {
+            background-color: var(--primary-teal);
+            color: white;
+            width: 100%;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .btn-footer:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .footer-meta {
+            max-width: var(--max-width);
+            margin: 40px auto 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .compliance-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            max-width: 700px;
+            line-height: 1.5;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* --- Morphing Graphic Animation Keyframes --- */
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
+
+        /* --- Responsive Framework --- */
+        @media (max-width: 1024px) {
+            .hero-container, .grid-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .image-container {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .corporate-footer {
+                padding: 60px 20px 30px 20px;
+            }
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 2rem;
+                margin: 0.5rem 0;
+            }
+            .b2b-contact-box {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 12px;
+                gap: 0.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-meta {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="locked">
+
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="splash-tagline">Institutional Supply Precision</div>
+            <div class="splash-logo">Mass <span>Corporation</span></div>
+            <div class="splash-signature">Know your medicine</div>
+        </div>
+    </div>
+
+    <header class="top-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-area">
+                <div class="logo-icon">M</div>
+                <h1 class="logo-text">Mass <span>Corporation</span></h1>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                </ul>
+            </nav>
+
+            <div class="b2b-contact-box">
+                <a href="tel:+880212345678" class="contact-item">
+                    <span>P:</span> <strong>+880 2-12345678</strong>
+                </a>
+                <a href="mailto:mass.corp25@outlook.com" class="contact-item">
+                    <span>E:</span> <strong>mass.corp25@outlook.com</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content fade-up">
+                    <span class="hero-tag">Licensed Distributor</span>
+                    <h1>Securing Global Standards for Local Healthcare</h1>
+                    <p>Mass Corporation provides uncompromised, temperature-controlled institutional pharmaceutical distribution and wholesale supply chains across Bangladesh.</p>
+                    <div class="hero-actions">
+                        <a href="products.html" class="btn btn-primary">Browse Product Catalog</a>
+                        <a href="mailto:mass.corp25@outlook.com?subject=Corporate%20Inquiry" class="btn btn-secondary">Corporate Inquiries</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual fade-up" style="transition-delay: 0.2s;">
+                    <div class="trust-badge">
+                        <div class="trust-icon">✓</div>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">GDP Certified Facilities</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin:0;">Strict adherence to Good Distribution Practices.</p>
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-icon">❄️</div>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">Cold Chain Integrity</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin:0;">24/7 Monitored temperature-controlled transit.</p>
+                        </div>
+                    </div>
+                    <div class="trust-badge" style="border:none; padding-bottom:0; margin-bottom:0;">
+                        <div class="trust-icon">🛡️</div>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">Quality Assurance</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin:0;">Direct from WHO cGMP compliant manufacturers.</p>
+                        </div>
+                    </div>
+                </div>                
+                                                                               
+                
+                <div class="hero-graphic fade-up">
+                    <div class="graphic-bg">
+                        <div class="graphic-core">
+                            <span class="graphic-badge">Certified</span>
+                            <div style="font-family: 'Lexend', sans-serif; font-size: 1.5rem; font-weight:600; margin-top:2rem; line-height:1.2;">
+                                E-Trade Licensed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="founder-section">
+            <div class="grid-layout">
+                <div class="image-container fade-up">
+                    <img src="assets/corporate/founder.jpg" onerror="this.style.display='none';" alt="Founder Photo Headshot">
+                    <div class="image-placeholder-spec">
+                        <div>
+                            Managing Director Headshot
+                        </div>
+                    </div>
+                </div>
+                <div class="biography-space fade-up">
+                    <h2>Executive Leadership</h2>
+                    <div class="founder-title">Managing Director & Founder, Mass Corporation</div>
+                    <div class="bio-text">
+                        <p>Welcome to Mass Corporation. For years, our mandate has been clear: bridging the gap between cutting-edge global medical developments and local healthcare availability with structural precision.</p>
+                        <p>Operating out of the heart of Dhaka, we have scaled our storage, supply metrics, and compliance framework to meet strict international standards, guaranteeing safe, effective distributions to healthcare institutions throughout the nation.</p>
+                    </div>
+                    <div class="signature-block">
+                        <div style="font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 1.25rem; color: var(--dark-blue);">Management Board</div>
+                        <div class="signature-title">Mass Corporation Dhaka</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview-section">
+            <div class="preview-container">
+                <div class="section-header fade-up">
+                    <div>
+                        <span class="hero-tag" style="margin-bottom:0.5rem;">Portfolio</span>
+                        <h2>Distribution Portfolios</h2>
+                    </div>
+                    <a href="products.html" class="btn btn-primary">View All Products</a>
+                </div>
+
+                <div class="showcase-grid">
+                    <div class="category-card fade-up">
+                        <div class="category-icon">💊</div>
+                        <h3>Antibiotics & Antivirals</h3>
+                        <p>Premium systemic anti-infective medications manufactured in certified compliance facilities for critical therapeutic delivery.</p>
+                        <a href="products.html?cat=Antibiotics" class="category-link">Explore Category &rarr;</a>
+                    </div>
+                    <div class="category-card fade-up">
+                        <div class="category-icon">💧</div>
+                        <h3>Therapeutic Syrups</h3>
+                        <p>Precisely bio-available liquid formulations engineered for uniform dosing profiles and rapid pediatric/geriatric response.</p>
+                        <a href="products.html?cat=Syrups" class="category-link">Explore Category &rarr;</a>
+                    </div>
+                    <div class="category-card fade-up">
+                        <div class="category-icon">🩺</div>
+                        <h3>Medical Devices & Kits</h3>
+                        <p>High-grade diagnostics, structural surgical consumables, and complex clinical monitoring tools for institutional demands.</p>
+                        <a href="products.html?cat=Medical Devices" class="category-link">Explore Category &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="corporate-footer">
+        <div class="footer-container fade-up">
+            <div class="footer-brand">
+                <h3>Mass <span>Corporation</span></h3>
+                <p>An institutional wholesale distribution entity ensuring safe and scalable access to global pharmaceutical supplies across Bangladesh.</p>
+            </div>
+            
+            <div class="footer-address">
+                <strong>Corporate Headquarters</strong><br>
+                123 Pharma Avenue, Commercial Area<br>
+                Banani, Dhaka - 1213, Bangladesh
+            </div>
+            
+            <div class="footer-contact">
+                <h4 class="footer-heading">Corporate Office</h4>
+                <ul class="contact-list">                        
+                    <li>
+                        <span>📞</span>
+                        <a href="tel:+880212345678">+880 2-12345678</a>
+                    </li>
+                    <li>
+                        <span>📧</span>
+                        <a href="mailto:mass.corp25@outlook.com">mass.corp25@outlook.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-inquiry">
+                <div class="inquiry-box">
+                    <h4 class="footer-heading" style="margin-bottom: 0.5rem;">Partner With Us</h4>
+                    <p>Connect with our B2B relations team for wholesale distribution agreements.</p>
+                    <a href="mailto:mass.corp25@outlook.com" class="btn btn-footer">Initiate Inquiry</a>
+                </div>
+            </div>            
+        </div>
+
+        <div class="footer-meta fade-up">
+            <div class="compliance-note">
+                <strong>Legal & Compliance Notice:</strong> Operating in strict validation with the Directorate General of Drug Administration (DGDA) framework. Distribution channels follow guidelines for World Health Organization Good Distribution Practices (WHO GDP).
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Mass Corporation. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // ==========================================
+            // 1. INTERSECTION OBSERVER (FADE-UP VISUALS)
+            // ==========================================
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -80px 0px', 
+                threshold: 0.12
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => observer.observe(el));
+
+            // ==========================================
+            // 2. SPLASH SCREEN TIMEOUT & SCROLL UNLOCK
+            // ==========================================
+            const splashPanel = document.getElementById("splash-screen");
+            
+            // Exactly 3-second (3000ms) structural viewport lockout freeze
+            setTimeout(() => {
+                // Fade out the splash panel smoothly
+                splashPanel.style.opacity = "0";
+                
+                // Remove the overflow hidden restriction from the body
+                document.body.classList.remove("locked");
+                
+                // Complete node removal from rendering stream after transition resolves
+                setTimeout(() => {
+                    splashPanel.style.display = "none";
+                }, 600);
+            }, 3000);
+        });
+    </script>
+    
+</body>
+</html>
